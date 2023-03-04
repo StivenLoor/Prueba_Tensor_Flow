@@ -42,7 +42,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 
-import com.example.RealtimeDetection_GoogleMLKit.R;
+import com.example.prueba_tensor_flow.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
