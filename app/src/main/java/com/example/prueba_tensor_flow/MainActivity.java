@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.prueba_tensor_flow.ml.ModelBanderas;
 import com.example.prueba_tensor_flow.ml.Modelros;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -199,10 +200,10 @@ public class MainActivity extends AppCompatActivity implements OnSuccessListener
     }
     public void PersonalizedModel(View v) {
         try {
-            Modelros model = Modelros.newInstance(getApplicationContext());
+            ModelBanderas model = ModelBanderas.newInstance(getApplicationContext());
             TensorImage image = TensorImage.fromBitmap(mSelectedImage);
 
-            Modelros.Outputs outputs = model.process(image);
+            ModelBanderas.Outputs outputs = model.process(image);
             List<Category> probability = outputs.getProbabilityAsCategoryList();
 
             Collections.sort(probability, new CategoryComparator());
@@ -329,10 +330,10 @@ public class MainActivity extends AppCompatActivity implements OnSuccessListener
         rgbFrameBitmap.setPixels(rgbBytes, 0, previewWidth, 0, 0, previewWidth, previewHeight);
 
         try {
-            Modelros model = Modelros.newInstance(getApplicationContext());
+            ModelBanderas model = ModelBanderas.newInstance(getApplicationContext());
             TensorImage image = TensorImage.fromBitmap(rgbFrameBitmap);
 
-            Modelros.Outputs outputs = model.process(image);
+            ModelBanderas.Outputs outputs = model.process(image);
             List<Category> probability = outputs.getProbabilityAsCategoryList();
             Collections.sort(probability, new CategoryComparator());
             String res="";
